@@ -53,7 +53,7 @@ class RocketControllerView {
         }
         else {
             const p = this.createElement('p');
-            p.textContent = `Rocket ${rocketId} has reached it's max power of ${maxPower}.`;
+            p.textContent = `Rocket ${rocketId} has reached its max power of ${maxPower}.`;
             (_b = this.elements) === null || _b === void 0 ? void 0 : _b.append(p);
         }
     }
