@@ -5,11 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rockets</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  
   </head>
 
+  
   <body>
-    <div id="root"></div>
+    <div class="container-fluid text-center">    
+      <div class="row content">
+        <div class="col-sm-2 sidenav"></div>
+
+        <div class="rocket col-sm-2 sidenav text-center">
+          <p>rocket1</p>
+        </div>
+        <div class="rocket col-sm-2 sidenav text-centers">
+          <p>rocket2</p>
+        </div>
+        <div class="col-sm-4 text-left"> 
+          <h1>Welcome</h1>
+          <p id="root"></p>
+         
+        </div>
+        <div class="col-sm-2 sidenav"></div>
+      </div>
+    </div>
+
+
+    <div id="sticky-footer" class="fixed-bottom bg-light text-black-50">
+      <div class="container text-center">
+        <small>Icons made by <a href="https://www.flaticon.com/free-icon/launch_2909653" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></small>
+      </div>
+    </div>
+
+
     <script src="models/rocket.js"></script>
     <script src="models/rocketlistModel.js"></script>
     <script src="controllers/controller.js"></script>

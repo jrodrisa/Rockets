@@ -9,14 +9,19 @@
 "use strict";
 class RocketListController {
     constructor(rocketListModel, rocketListView) {
-        this.rocketListModel = rocketListModel; //cridar la funció createRocketList 
+        this.rocketListModel = rocketListModel;
         this.rocketListView = rocketListView;
     }
-    createRocket() {
-        //TODO
-    }
-    createRocketList() {
-        //Cridar la funció createRocket dos cops (un per cada coet) i afegir-ho en un nou RocketListModel 
+    createRocket(id) {
+        let rocket = new Rocket(id);
+        if (id === "32WESSDS") {
+            rocket.addThrusters("32WESSDS");
+        }
+        else if (id === "LDSFJA32") {
+            rocket.addThrusters("LDSFJA32");
+        }
+        this.rocketListModel.addRocket(rocket);
+        return rocket;
     }
     handleShowRocket(id) {
         this.rocketListView.showSingleRocket(id, this.rocketListModel);

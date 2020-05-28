@@ -9,15 +9,19 @@
 class RocketListModel{
     rockets: Rocket[];
 
-    constructor(rockets: Rocket[]) {
-        this.rockets = rockets;
+    constructor() {
+        this.rockets = [];
     }
 
     get _getRocketList(){
         return this.rockets;
     }
 
-    findRocket(id: string){
+    findRocket(id: string):Rocket{
         return this.rockets.filter(e => e.id == id)[0];
     }
-}
+
+    addRocket(rocket: Rocket):void{
+        this.rockets.push(rocket);
+    }
+} 

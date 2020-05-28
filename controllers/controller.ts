@@ -13,19 +13,23 @@
     rocketListModel: RocketListModel; 
     rocketListView: RocketControllerView;
 
+
     constructor(rocketListModel: RocketListModel, rocketListView: RocketControllerView,){
-        this.rocketListModel = rocketListModel; //cridar la funció createRocketList 
+        this.rocketListModel = rocketListModel;
         this.rocketListView = rocketListView;
     }
 
-    createRocket(){
-        //TODO
+    createRocket(id: string):Rocket{
+        let rocket: Rocket = new Rocket(id);
+        if (id === "32WESSDS"){
+            rocket.addThrusters("32WESSDS");
+        } else if (id === "LDSFJA32") {
+            rocket.addThrusters("LDSFJA32");
+        }
+        this.rocketListModel.addRocket(rocket);
+        return rocket;
     }
-
-    createRocketList(){
-        //Cridar la funció createRocket dos cops (un per cada coet) i afegir-ho en un nou RocketListModel 
-    }
-    
+        
     handleShowRocket(id: string): void{
         this.rocketListView.showSingleRocket(id, this.rocketListModel);
     }
@@ -46,4 +50,3 @@
         this.rocketListModel.findRocket(id).breakRocket();
     }
 }
-

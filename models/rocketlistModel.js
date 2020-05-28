@@ -5,13 +5,16 @@
  */
 "use strict";
 class RocketListModel {
-    constructor(rockets) {
-        this.rockets = rockets;
+    constructor() {
+        this.rockets = [];
     }
     get _getRocketList() {
         return this.rockets;
     }
     findRocket(id) {
         return this.rockets.filter(e => e.id == id)[0];
+    }
+    addRocket(rocket) {
+        this.rockets.push(rocket);
     }
 }

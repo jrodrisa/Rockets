@@ -15,16 +15,39 @@ class Rocket {
     currentPower: number;
     maxPower: number;
 
-    constructor(id: string, numThrusters: number, thrusters: Thruster[]) {
+    constructor(id: string) {
         this.id = id;
-        this.numThrusters = numThrusters;
-        this.thrusters = thrusters;
+        this.thrusters = [];
+        this.numThrusters = this.thrusters.length;
         this.initialPower = 0;
         this.currentPower = this.calculateCurrentPower();
         this.maxPower = this.calculateMaxPower();
     }
 
-    thrustersMaxPower(rocket: Rocket): number[]{
+    addThrusters(id: string): Thruster[]{
+        if (id === "32WESSDS"){
+            this.thrusters.push(
+                new Thruster(0, 10), 
+                new Thruster(0, 30), 
+                new Thruster(0, 80) 
+            );
+            
+        } else if (id === "LDSFJA32") {
+            this.thrusters.push( 
+                new Thruster(0, 30), 
+                new Thruster(0, 40),
+                new Thruster(0, 50), 
+                new Thruster(0, 50),
+                new Thruster(0, 30),
+                new Thruster(0, 10) 
+            );
+        }
+        this.numThrusters = this.thrusters.length;
+        this.maxPower = this.calculateMaxPower();
+        return this.thrusters;
+    }
+
+    thrustersMaxPower(rocket: Rocket):number[]{
         let thrustersMaxPower: number[] = [];
 
         for (let i = 0; i < (rocket.numThrusters); i++) {               
@@ -35,7 +58,7 @@ class Rocket {
     }
 
 
-    thrustersCurrentPower(rocket: Rocket): number[]{
+    thrustersCurrentPower(rocket: Rocket):number[]{
         let thrustersCurrentPower: number[] = [];
 
         for (let i = 0; i < (rocket.numThrusters); i++) {               
@@ -45,27 +68,23 @@ class Rocket {
         return thrustersCurrentPower;
     }
 
-    calculateCurrentPower(): number{
+    calculateCurrentPower():number{
         if (isNaN(this.currentPower)) {
             this.currentPower = this.initialPower;
         }
 
-        this.currentPower = 0;
+        this.currentPower = this.initialPower;
 
         for (let i = 0; i < (this.numThrusters); i++) { 
              this.currentPower += this.thrusters[i].currentPower;
         }
-        console.log(this.currentPower);
         return this.currentPower;
     }
 
-    calculateMaxPower(): number{
-        if (isNaN(this.maxPower)){
-            this.maxPower = 0;
-            for (let i = 0; i < (this.numThrusters); i++) { 
-                this.maxPower += this.thrusters[i].maxPower;
-           }
-           console.log(this.maxPower);
+    calculateMaxPower():number{
+        this.maxPower = 0;
+        for (let i = 0; i < (this.numThrusters); i++) { 
+            this.maxPower += this.thrusters[i].maxPower;
         }
         return this.maxPower;
     }
