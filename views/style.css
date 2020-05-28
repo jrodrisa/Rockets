@@ -1,0 +1,21 @@
+body, html{
+   height: 85%;
+}
+
+.container-fluid{
+    margin-top: 100px;
+}
+
+.card{
+    margin-top: -10px;
+}
+
+.btn{
+    margin: 10px;
+}
+
+
+
+.rocket{
+    margin-top: 100%;
+}
