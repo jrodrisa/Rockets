@@ -1,3 +1,23 @@
+body, html{
+   height: 85%;
+}
+
+.container-fluid{
+    margin-top: 100px;
+}
+
+.card{
+    margin-top: -10px;
+}
+
+.btn{
+    margin: 10px;
+}
+
+ion-icon.rocket-sharp {
+    transform: rotate(-45deg);  
+}
+
 .rocket{
-    font-size: large;
+    margin-top: 100%;
 }
