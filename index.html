@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rockets</title>
 
-    
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="views/style.css">
   </head>
@@ -20,47 +21,49 @@
           <div class="row text-center d-flex justify-content-center">
             <ion-icon name="rocket-sharp" size="large"></ion-icon>
           </div>
-          <button type="button" class="btn btn-outline-success">Create Rocket</button>
+          <button type="button" class="btn btn-outline-success" id="rocket1btn" >Create Rocket</button>
           <div class="row text-center d-flex justify-content-center">
-            <img src="views/img/greenRocket.svg" alt="Blue rocket" class="rocket d-none">
+            <img src="views/img/greenRocket.svg" alt="Blue rocket" id="rocket1img" class="rocket d-none">
           </div>
 
         </div>
 
         <div class="col-sm-4 text-center d-flex justify-content-center">
-          <div class="card" style="width: 18rem; height: 400px;">
+          <div class="card" style="width: 18rem; height: 450px">
             <div class="card-header">
               <ion-icon name="game-controller" size=large></ion-icon>
             </div>
             <div class="card-body">
               <div class="row text-center d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-success">Print</button>
-                <button type="button" class="btn btn-outline-primary">Print</button>
+                <button type="button" class="btn btn-outline-success" id="printbtn1" >Print</button>
+                <button type="button" class="btn btn-outline-primary" id="printbtn2" >Print</button>
               </div>
               
               <div class="row text-center d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-success">Accelerate</button>
-                <button type="button" class="btn btn-outline-primary">Accelerate</button> 
+                <button type="button" class="btn btn-outline-success" id="acceleratebtn1">Accelerate</button>
+                <button type="button" class="btn btn-outline-primary" id="acceleratebtn2">Accelerate</button> 
               </div>
               <div class="row text-center d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-success">Break</button>
-                <button type="button" class="btn btn-outline-primary">Break</button> 
+                <button type="button" class="btn btn-outline-success" id="breakbtn1">Break</button>
+                <button type="button" class="btn btn-outline-primary" id="breakbtn2">Break</button> 
               </div>
               <div class="row d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-info">Print both</button>
+                <button type="button" class="btn btn-outline-info" id="showRocketList" >Print both</button>
               </div>
               <p id="root"></p>
             </div>
           </div>                        
         </div>
 
+        
+
         <div class="col-sm-2 sidenav text-center">
           <div class="row text-center d-flex justify-content-center">
             <ion-icon name="rocket-sharp" size="large"></ion-icon>
           </div>
-          <button type="button" class="btn btn-outline-primary">Create Rocket</button>
+          <button type="button" class="btn btn-outline-primary" id="rocket2btn">Create Rocket</button>
           <div class="row text-center d-flex justify-content-center">
-            <img src="views/img/blueRocket.svg" alt="Blue rocket"class="rocket d-none">
+            <img src="views/img/blueRocket.svg" alt="Blue rocket"class="rocket d-none" id="rocket2img">
           </div>
         </div>
 
@@ -75,12 +78,12 @@
       </div>
     </div>
 
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
     <script src="models/rocket.js"></script>
-    <script src="models/rocketlistModel.js"></script>
-    <script src="controllers/controller.js"></script>
-    <script src="views/rocketListView.js"></script>
     <script src="models/thruster.js"></script>
+    <script src="models/rocketlistModel.js"></script>
+    <script src="views/rocketListView.js"></script>
+    <script src="controllers/controller.js"></script>   
     <script src="app.js"></script>
   </body>
 </html>

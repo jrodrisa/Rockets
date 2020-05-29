@@ -1,9 +1,9 @@
 // crees dades inicials (rocket i controlador)
 
-let rocketListController: RocketListController = new RocketListController(new RocketListModel(), new RocketControllerView());
+// let rocketListController: RocketListController = new RocketListController(new RocketListModel(), new RocketControllerView());
 
-let rocket1: Rocket = rocketListController.createRocket("32WESSDS");
-let rocket2: Rocket = rocketListController.createRocket("LDSFJA32");
+// let rocket1: Rocket = rocketListController.createRocket("32WESSDS");
+// let rocket2: Rocket = rocketListController.createRocket("LDSFJA32");
 
 // rocketListController.handleShowRocket(rocket1.id);
 // rocketListController.handleShowRocket(rocket2.id);

@@ -12,6 +12,7 @@ class Rocket {
         this.initialPower = 0;
         this.currentPower = this.calculateCurrentPower();
         this.maxPower = this.calculateMaxPower();
+        this.position = 100;
     }
     addThrusters(id) {
         if (id === "32WESSDS") {
@@ -62,6 +63,7 @@ class Rocket {
             }
         }
         this.currentPower = this.calculateCurrentPower();
+        this.moveRocket();
     }
     breakRocket() {
         for (let thruster of this.thrusters) {
@@ -70,5 +72,23 @@ class Rocket {
             }
         }
         this.currentPower = this.calculateCurrentPower();
+        this.moveRocket();
+    }
+    moveRocket() {
+        let _this = this;
+        setInterval(frame, 1);
+        function frame() {
+            let elem1 = document.getElementById("rocket1img");
+            let elem2 = document.getElementById("rocket2img");
+            let divHeight = 10;
+            if (_this.position <= divHeight) {
+                _this.position = 100;
+            }
+            else {
+                _this.position -= _this.currentPower / 2000;
+                (_this.id === "32WESSDS") ? elem1.style.marginTop = _this.position + '%' : false;
+                (_this.id === "LDSFJA32") ? elem2.style.marginTop = _this.position + '%' : false;
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ class Rocket {
     initialPower: number;
     currentPower: number;
     maxPower: number;
+    position: number;
 
     constructor(id: string) {
         this.id = id;
@@ -22,6 +23,7 @@ class Rocket {
         this.initialPower = 0;
         this.currentPower = this.calculateCurrentPower();
         this.maxPower = this.calculateMaxPower();
+        this.position = 100;
     }
 
     addThrusters(id: string): Thruster[]{
@@ -96,6 +98,7 @@ class Rocket {
             }
         }
         this.currentPower = this.calculateCurrentPower();
+        this.moveRocket();
     }
 
     breakRocket():void{
@@ -105,6 +108,28 @@ class Rocket {
             }
         }
         this.currentPower = this.calculateCurrentPower();
+        this.moveRocket();
+    }
+
+    moveRocket(){
+        let _this = this; 
+
+        setInterval(frame, 1);
+
+        function frame() {
+            let elem1 = <HTMLElement>document.getElementById("rocket1img");
+            let elem2 = <HTMLElement>document.getElementById("rocket2img");
+            let divHeight: number = 10;
+
+            if (_this.position <= divHeight ) {
+                _this.position = 100;                
+
+            } else {
+            _this.position -= _this.currentPower/2000;
+            (_this.id === "32WESSDS") ? elem1.style.marginTop = _this.position + '%' : false;
+            (_this.id === "LDSFJA32") ? elem2.style.marginTop = _this.position + '%' : false;
+           }
+        }
     }
 }
 

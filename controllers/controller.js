@@ -11,31 +11,75 @@ class RocketListController {
     constructor(rocketListModel, rocketListView) {
         this.rocketListModel = rocketListModel;
         this.rocketListView = rocketListView;
+        this.id1 = "32WESSDS";
+        this.id2 = "LDSFJA32";
+        this.rocket1 = this.createRocket("default");
+        this.rocket2 = this.createRocket("default");
+        this.handleShowRocketList();
+        this.handleNewRockets();
+        this.handleShowRocket();
+        this.handleAccelerateRocket();
+        this.handleBreakRocket();
     }
     createRocket(id) {
         let rocket = new Rocket(id);
-        if (id === "32WESSDS") {
-            rocket.addThrusters("32WESSDS");
+        if (id === this.id1) {
+            rocket.addThrusters(this.id1);
         }
-        else if (id === "LDSFJA32") {
-            rocket.addThrusters("LDSFJA32");
+        else if (id === this.id2) {
+            rocket.addThrusters(this.id2);
         }
-        this.rocketListModel.addRocket(rocket);
+        if (id !== "default") {
+            this.rocketListModel.addRocket(rocket);
+            console.log(`Rocket ${id} has been created`);
+        }
         return rocket;
     }
-    handleShowRocket(id) {
-        this.rocketListView.showSingleRocket(id, this.rocketListModel);
+    handleNewRockets() {
+        this.rocketListView.rocket1btn.addEventListener("click", event => {
+            this.rocket1 = rocketListController.createRocket(this.id1);
+            rocketListController.rocketListView.showNewRocket(this.id1);
+        });
+        this.rocketListView.rocket2btn.addEventListener("click", event => {
+            this.rocket2 = rocketListController.createRocket(this.id2);
+            rocketListController.rocketListView.showNewRocket(this.id2);
+        });
+    }
+    handleShowRocket() {
+        this.rocketListView.printbtn1.addEventListener("click", event => {
+            this.rocketListView.showSingleRocket(this.id1, this.rocketListModel);
+        });
+        this.rocketListView.printbtn2.addEventListener("click", event => {
+            this.rocketListView.showSingleRocket(this.id2, this.rocketListModel);
+        });
     }
     handleShowRocketList() {
-        this.rocketListView.showRockets(this.rocketListModel);
+        this.rocketListView.showRocketList.addEventListener("click", event => {
+            this.rocketListView.showRockets(this.rocketListModel);
+        });
     }
     handleShowCurrentPower(id) {
         this.rocketListView.showCurrentPower(id, this.rocketListModel);
     }
-    handleAccelerateRocket(id) {
-        this.rocketListModel.findRocket(id).accelerateRocket();
+    handleAccelerateRocket() {
+        this.rocketListView.acceleratebtn1.addEventListener("click", event => {
+            this.rocketListModel.findRocket(this.id1).accelerateRocket();
+            this.handleShowCurrentPower(this.id1);
+        });
+        this.rocketListView.acceleratebtn2.addEventListener("click", event => {
+            this.rocketListModel.findRocket(this.id2).accelerateRocket();
+            this.handleShowCurrentPower(this.id2);
+        });
     }
-    handleBreakRocket(id) {
-        this.rocketListModel.findRocket(id).breakRocket();
+    handleBreakRocket() {
+        this.rocketListView.breakbtn1.addEventListener("click", event => {
+            this.rocketListModel.findRocket(this.id1).breakRocket();
+            this.handleShowCurrentPower(this.id1);
+        });
+        this.rocketListView.breakbtn2.addEventListener("click", event => {
+            this.rocketListModel.findRocket(this.id2).breakRocket();
+            this.handleShowCurrentPower(this.id2);
+        });
     }
 }
+let rocketListController = new RocketListController(new RocketListModel(), new RocketControllerView());
